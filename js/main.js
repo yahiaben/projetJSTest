@@ -37,7 +37,7 @@ formConnexion.addEventListener('submit', function(e){
 	// On valide le mdp avec le pseudo si il existe
 	if(connect.valider()){
 		console.log("conect valider");
-		connexionUtilisateur(pseudo);
+		utilisateur.connect(pseudo);
 	}
 	e.preventDefault();
 }, true);
@@ -67,13 +67,13 @@ formCreateAccount.addEventListener('submit', function(e){
 		cobra.sendMessage({pseudo: pseudoA, mdp: mdpA},roomPseudo,false);
 		alert("Féicitation, votre compte à été créé !\n"+"pseudo : "+pseudoA+"\nmot de passe : "+mdpA);
 		apiUrl = 'http://cobra-framework.com:3000/api/events/' + room;
-		connexionUtilisateur(pseudoA);
+		utilisateur.connect(pseudo);
 	}
 
 	e.preventDefault();
 }, true);
 
-
+/*
 var menuConnexion = document.getElementById("menuConnexion");
 var divLogin = document.getElementById("divLogin");
 var divAccount = document.getElementById("divAccount");
@@ -83,20 +83,13 @@ function connexionUtilisateur(pseudo) {
 	menuConnexion.remove();
 	divLogin.remove();
 	divAccount.remove();
-
 	
 	//je charge les messages de l'utilisateur en question
 	cobra.joinRoom(room);
 	var divAccueil = document.getElementById('divAccueil');
 	divAccueil.style.display = "block";
 	utilisateur.connect(pseudo);
-}
-/*
-$("#notification").click(function(event) {
-	event.preventDefault();
-	$("#notification").slideUp();
-});*/
-
+}*/
 
 var btnLogin = document.getElementById('btnLogin');
 btnLogin.addEventListener('click', function(){
@@ -107,16 +100,6 @@ btnLogin.addEventListener('click', function(){
 	btnLogin.className ="active";
 	btnAccount.className="";
 }, true);
-
-
-// var btnEnvoyerL = document.getElementById("btnEnvoyerL");
-// btnEnvoyerL.addEventListener('click', function(){
-// 	var pseudoL = document.getElementById("pseudoL").value;
-// 	var passL = document.getElementById("passL").value;
-// 	console.log("envoyer ===> "+pseudoL+"  "+passL);
-// 	connexionUtilisateur(pseudoL);
-// }, true);
-
 
 var btnAccount = document.getElementById('btnAccount');
 btnAccount.addEventListener('click', function(){
