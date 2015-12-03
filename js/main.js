@@ -11,8 +11,13 @@ myForm.addEventListener('submit', function(e){
 	var nb = document.getElementsByClassName('btnReceveur').length;
 	if(nb==0){
 		var n = new Notification(pseudo,titre,contenu, "tous", false);
-		n.envoyerNotification();
-		e.preventDefault();
+		try{
+			n.envoyerNotification();
+			e.preventDefault();
+		}catch(e){
+
+		}
+		
 	}else{
 		for(i=0;i<nb;i++){
 			var receiver = document.getElementsByClassName('btnReceveur')[i].id;
@@ -20,7 +25,11 @@ myForm.addEventListener('submit', function(e){
 			e.preventDefault();
 		}
 		var n = new Notification(pseudo,titre,contenu, tabReceveurs,true);
-		n.envoyerNotification();
+		try{
+			n.envoyerNotification();
+		}catch(e){
+
+		}
 		while(document.getElementsByClassName('btnReceveur').length>0){
 			document.getElementsByClassName('btnReceveur')[0].remove(this);
 		}
@@ -36,7 +45,6 @@ formConnexion.addEventListener('submit', function(e){
 	var connect = new Connection(pseudo, mdp);
 	// On valide le mdp avec le pseudo si il existe
 	if(connect.valider()){
-		console.log("conect valider");
 		utilisateur.connect(pseudo);
 	}
 	e.preventDefault();
@@ -49,26 +57,11 @@ formCreateAccount.addEventListener('submit', function(e){
 
 	var pseudoA = document.getElementById('pseudoA').value;
 	var mdpA = document.getElementById('passA').value;
-	var pseudoExiste = false;
-	for (var i = 0; i < pseudosEnregistre.responseJSON.Events.length; i++) {
-		var content = pseudosEnregistre.responseJSON.Events[i].content;
-		// recuperer les infos contenues dans les messages
-		var json = JSON.parse(content);
-		var pseudo = json.message.pseudo
-		var mdp = json.message.mdp;
-		if(pseudoA == pseudo){
-			alert("Le pseudo existe déjà !");
-			pseudoExiste = true;
-			return false;
-		}
-	}
+
+	var compte = new Compte(pseudoA, mdpA);
+	compte.pseudoExist();
 	
-	if(!pseudoExiste){
-		cobra.sendMessage({pseudo: pseudoA, mdp: mdpA},roomPseudo,false);
-		alert("Féicitation, votre compte à été créé !\n"+"pseudo : "+pseudoA+"\nmot de passe : "+mdpA);
-		apiUrl = 'http://cobra-framework.com:3000/api/events/' + room;
-		utilisateur.connect(pseudo);
-	}
+	
 
 	e.preventDefault();
 }, true);

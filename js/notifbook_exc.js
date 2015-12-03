@@ -19,3 +19,17 @@ function ContenuNotificationNullException() {
 ContenuNotificationNullException.prototype.toString=function(){
     return "Titre null exception";
 };
+
+function PseudoCompteNullException() {
+};
+
+PseudoCompteNullException.prototype.toString=function(){
+    return "Pseudo compte null exception";
+};
+
+function MdpCompteNullException() {
+};
+
+MdpCompteNullException.prototype.toString=function(){
+    return "Mot de passe compte null exception";
+};
