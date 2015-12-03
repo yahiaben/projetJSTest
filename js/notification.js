@@ -4,15 +4,25 @@ function Notification(pseudo,title, content, receiver, group){
 	this.receiver=receiver;
 	this.contenu=content;
 	this.group=group;
-	this.__defineGetter__("title",function () {return titre;});
-	this.__defineGetter__("content",function () {return contenu;});
+	this.__defineGetter__("title",function () {return this.titre;});
+	this.__defineGetter__("content",function () {return this.contenu;});
 }
 
 Notification.prototype = {
 	envoyerNotification : function(){
-		cobra.sendMessage({pseudo: this.pseudo, title: this.titre, content: this.contenu, receiver: this.receiver, group: this.group},room,true);
+        if(this.titre === ""){
+         throw new TitreNotificationNullException();
+        }
+
+        if(this.contenu === ""){
+         throw new ContenuNotificationNullException();
+        }
+
+        cobra.sendMessage({pseudo: this.pseudo, title: this.titre, content: this.contenu, receiver: this.receiver, group: this.group},room,true);
+        
 	}
 }
+
 Notification.prototype.afficherNotification = function(){
 	//La div contenant toutes les notifications
     var divNotifications = document.getElementById('scrollNotif');
@@ -39,8 +49,8 @@ Notification.prototype.afficherNotification = function(){
     
     //je crée le pseudo, titre et contenu
     if(this.receiver){
-        if(group){
-            if(pseudo.length>4)
+        if(this.group){
+            if(this.pseudo.length>4)
                 var pseudo = document.createTextNode(" A : Groupe");
             else
                 var pseudo = document.createTextNode(" A : "+this.pseudo);

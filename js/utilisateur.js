@@ -8,7 +8,7 @@ function () {
 };
 
 Utilisateur.prototype.connect = function(pseudo){
-	if(pseudo === ""){
+	if(pseudo == ""){
 		throw new pseudoNullExc(pseudo);
 
 	}
