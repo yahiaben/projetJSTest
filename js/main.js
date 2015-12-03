@@ -73,24 +73,6 @@ formCreateAccount.addEventListener('submit', function(e){
 	e.preventDefault();
 }, true);
 
-/*
-var menuConnexion = document.getElementById("menuConnexion");
-var divLogin = document.getElementById("divLogin");
-var divAccount = document.getElementById("divAccount");
-function connexionUtilisateur(pseudo) {
-
-	//Suppression des elements de connexion
-	menuConnexion.remove();
-	divLogin.remove();
-	divAccount.remove();
-	
-	//je charge les messages de l'utilisateur en question
-	cobra.joinRoom(room);
-	var divAccueil = document.getElementById('divAccueil');
-	divAccueil.style.display = "block";
-	utilisateur.connect(pseudo);
-}*/
-
 var btnLogin = document.getElementById('btnLogin');
 btnLogin.addEventListener('click', function(){
 	var divL = document.getElementById('divLogin');

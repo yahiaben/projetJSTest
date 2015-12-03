@@ -39,7 +39,6 @@ $.ajax({
       var title = json.message.title;
       var contenu = json.message.content;
       var group = json.message.group;
-
       if(roomName == roomPseudo){
         pseudos.push(pseudo);
       }
@@ -47,15 +46,19 @@ $.ajax({
       if(roomName != roomPseudo){
         if(cobra.roomName == room){
           if(pseudo == utilisateur.pseudo){
-            afficherNotification(receiver, title,contenu,true, group);
+            var n = new Notification(receiver, title,contenu,true, group);
+            n.afficherNotification();
           }else{
             console.log("je suis ici");
             if(receiver=="tous"){
-              afficherNotification(pseudo, title,contenu,false, group);
+              var n = new Notification(pseudo, title,contenu,false, group);
+              n.afficherNotification();
             }else{
               var forMe = receiver.indexOf(utilisateur.pseudo);
-              if(forMe != -1)
-                afficherNotification(pseudo, title, contenu, false, group);
+              if(forMe != -1){
+                var n = new Notification(pseudo, title, contenu, false, group);
+                n.afficherNotification();
+              }
             }
           }
         }
