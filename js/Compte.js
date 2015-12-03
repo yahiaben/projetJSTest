@@ -1,7 +1,16 @@
 function Compte(pseudo, mdp){
-	console.log("create compte");
-	this.pseudo = pseudo;
+	
+	if(pseudo === ""){
+     throw new PseudoCompteNullException();
+    }
+
+    if(mdp === "" ){
+     throw new MdpCompteNullException();
+    }
+
+    this.pseudo = pseudo;
 	this.mdp = mdp;
+
 
 	this.__defineGetter__("pseudoo",function () {return this.pseudo;});
 	this.__defineGetter__("mdpp",function () {return this.mdp;});
@@ -9,15 +18,7 @@ function Compte(pseudo, mdp){
 
 Compte.prototype = {
 	pseudoExist : function(){
-		console.log("debut");
-        if(this.pseudo === ""){
-         throw new PseudoCompteNullException();
-        }
-
-        if(this.mdp === "" ){
-         throw new MdpCompteNullException();
-        }
-
+        
         var pseudoExiste = false;
 		for (var i = 0; i < pseudosEnregistre.responseJSON.Events.length; i++) {
 			var content = pseudosEnregistre.responseJSON.Events[i].content;
@@ -38,7 +39,6 @@ Compte.prototype = {
 			apiUrl = 'http://cobra-framework.com:3000/api/events/' + room;
 			utilisateur.connect(pseudo);
 		}
-        console.log("finnnnnnn");
 
 	}
 }

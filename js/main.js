@@ -1,7 +1,7 @@
 
 var utilisateur = new Utilisateur();
 var myForm = document.getElementById('sendForm');
-myForm.addEventListener('submit', function(e){
+myForm.addEventListener('submit', function(event){
 	
 	var titre = document.getElementById('titreNotif').value;
 	var contenu = document.getElementById('textNotif').value;
@@ -12,23 +12,26 @@ myForm.addEventListener('submit', function(e){
 	if(nb==0){
 		var n = new Notification(pseudo,titre,contenu, "tous", false);
 		try{
+			event.preventDefault();
 			n.envoyerNotification();
-			e.preventDefault();
+			
 		}catch(e){
-
+			alert("Il faut remplir tout les champs !");
 		}
 		
 	}else{
 		for(i=0;i<nb;i++){
+			event.preventDefault();
 			var receiver = document.getElementsByClassName('btnReceveur')[i].id;
 			tabReceveurs.push(receiver);
-			e.preventDefault();
+			
 		}
 		var n = new Notification(pseudo,titre,contenu, tabReceveurs,true);
 		try{
 			n.envoyerNotification();
 		}catch(e){
-
+			alert("Il faut remplir tout les champs !");
+			
 		}
 		while(document.getElementsByClassName('btnReceveur').length>0){
 			document.getElementsByClassName('btnReceveur')[0].remove(this);
