@@ -1,6 +1,8 @@
 function Connection(pseudo,mdp){
 	this.pseudo = pseudo;
 	this.mdp=mdp;
+	var cobra = new Cobra();
+        cobra.roomName = room;
 	this.__defineGetter__("pseudo",function () {return pseudo;});
 	this.__defineGetter__("mdp",function () {return mdp;});
 }

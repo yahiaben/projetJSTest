@@ -1,9 +1,12 @@
 
 var utilisateur = new Utilisateur();
-var myForm = document.getElementById('sendForm');
-myForm.addEventListener('submit', function(event){
-	
+
+// Fonction pour envoyer une notification
+function sendNotif(event){
+
+	//event.preventDefault();
 	var titre = document.getElementById('titreNotif').value;
+	console.log("titre ======> "+titre);
 	var contenu = document.getElementById('textNotif').value;
 	var pseudo = utilisateur.pseudo;
 	var tabReceveurs = Array();
@@ -16,20 +19,22 @@ myForm.addEventListener('submit', function(event){
 			n.envoyerNotification();
 			
 		}catch(e){
+			event.preventDefault();
 			alert("Il faut remplir tout les champs !");
 		}
 		
 	}else{
 		for(i=0;i<nb;i++){
-			event.preventDefault();
 			var receiver = document.getElementsByClassName('btnReceveur')[i].id;
 			tabReceveurs.push(receiver);
 			
 		}
 		var n = new Notification(pseudo,titre,contenu, tabReceveurs,true);
 		try{
+			event.preventDefault();
 			n.envoyerNotification();
 		}catch(e){
+			event.preventDefault();
 			alert("Il faut remplir tout les champs !");
 			
 		}
@@ -38,7 +43,12 @@ myForm.addEventListener('submit', function(event){
 		}
 	}
 	myForm.reset();
-}, true);
+}
+
+var myForm = document.getElementById('sendForm');
+
+//envoie de la notification
+myForm.addEventListener('submit', sendNotif, true);
 
 
 var formConnexion = document.getElementById('sendLogin');

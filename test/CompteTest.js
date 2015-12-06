@@ -24,24 +24,6 @@ test("test mot de passe compte null", function()
 }
 );
 
-test("test creation compte", 1, function()
-{
-        var fixture="";
-        fixture+=("<form id='sendAccount'>");
-        fixture+=("<input type='text' id='pseudoA' name='pseudoA' value='pseudoTest'/>");
-        fixture+=("<input type='text' id='passA' name='passA' value='123456'/>");
-        fixture+=("</form>");
-        
-        
-        var fixtureNode=document.getElementById("qunit-fixture");
-        fixtureNode.innerHTML=fixture;
-        
-        
-        var c=new calc();
-        c.computeResult(document.getElementById('form0'));
-        equal(c.message,"Result : 4 (EUR)");
-}
-);
 
 
 

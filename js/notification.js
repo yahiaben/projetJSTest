@@ -71,7 +71,9 @@ Notification.prototype.afficherNotification = function(){
     var pPseudo = document.createElement("p");
     pPseudo.id ="pidPseudo";
     var h2 = document.createElement("h2");
+    h2.className = "titreNotif";
     var pContenu = document.createElement("p");
+    pContenu.id = "contenuNotif";
     
     //je crée l'image
     var icone = document.createElement("img");
