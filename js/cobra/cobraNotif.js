@@ -46,17 +46,17 @@ $.ajax({
       if(roomName != roomPseudo){
         if(cobra.roomName == room){
           if(pseudo == utilisateur.pseudo){
-            var n = new Notification(receiver, title,contenu,true, group);
+            var n = new notification(receiver, title,contenu,true, group);
             n.afficherNotification();
           }else{
             console.log("je suis ici");
             if(receiver=="tous"){
-              var n = new Notification(pseudo, title,contenu,false, group);
+              var n = new notification(pseudo, title,contenu,false, group);
               n.afficherNotification();
             }else{
               var forMe = receiver.indexOf(utilisateur.pseudo);
               if(forMe != -1){
-                var n = new Notification(pseudo, title, contenu, false, group);
+                var n = new notification(pseudo, title, contenu, false, group);
                 n.afficherNotification();
               }
             }
@@ -92,17 +92,17 @@ var group = message.message.group;
 if(message.message.title != null){
    if(cobra.roomName == room){
         if(pseudo == utilisateur.pseudo){
-          var n = new Notification(receiver, titre,contenu,true, group);
+          var n = new notification(receiver, titre,contenu,true, group);
           n.afficherNotification();
         }else{
           if(receiver=="tous"){
-            var n = new Notification(pseudo, titre,contenu,false, group);
+            var n = new notification(pseudo, titre,contenu,false, group);
             n.afficherNotification();
           }else{
 
             var forMe = receiver.indexOf(utilisateur.pseudo);
             if(forMe != -1){
-              var n = new Notification(pseudo, titre, contenu, false, group);
+              var n = new notification(pseudo, titre, contenu, false, group);
               n.afficherNotification();       
             }
           }

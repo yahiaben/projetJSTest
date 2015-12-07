@@ -1,35 +1,35 @@
 function pseudoNullExc(_p) {
-	this.p=_p;
+    this.p=_p;
 };
 
 pseudoNullExc.prototype.toString= function(){
-	return "Pseudo null exception " + this.p;
+    return "Pseudo null exception " + this.p;
 };
 
-function TitreNotificationNullException() {
+function titreNotificationNullException() {
 };
 
-TitreNotificationNullException.prototype.toString=function(){
+titreNotificationNullException.prototype.toString=function(){
     return "Titre null exception";
 };
 
-function ContenuNotificationNullException() {
+function contenuNotificationNullException() {
 };
 
-ContenuNotificationNullException.prototype.toString=function(){
+contenuNotificationNullException.prototype.toString=function(){
     return "Titre null exception";
 };
 
-function PseudoCompteNullException() {
+function pseudoCompteNullException() {
 };
 
-PseudoCompteNullException.prototype.toString=function(){
+pseudoCompteNullException.prototype.toString=function(){
     return "Pseudo compte null exception";
 };
 
-function MdpCompteNullException() {
+function mdpCompteNullException() {
 };
 
-MdpCompteNullException.prototype.toString=function(){
+mdpCompteNullException.prototype.toString=function(){
     return "Mot de passe compte null exception";
 };

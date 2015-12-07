@@ -5,7 +5,7 @@ module("notification", {
 
 test("test creation notification",function()
 {
-	var n=new Notification("mohcine","Test notification", "test", "yahia", false);
+	var n=new notification("mohcine","Test notification", "test", "yahia", false);
 	ok(n.pseudo=="mohcine","pseudo");
 	ok(n.titre=="Test notification","title");
 	ok(n.receiver=="yahia","pseudo");
@@ -17,15 +17,15 @@ test("test creation notification",function()
 
 test("test pseudo notification null", function()
 {
-	var n= new Notification("pseudo","", "content", "tous", false);
-	throws(function() {n.envoyerNotification()}, TitreNotificationNullException, "Titre notification null exception");
+	var n= new notification("pseudo","", "content", "tous", false);
+	throws(function() {n.envoyerNotification()}, titreNotificationNullException, "Titre notification null exception");
 }
 );
 
 test("test contenu notification null", function()
 {	
-	var n= new Notification("pseudo","titre", "", "tous", false);
-	throws(function() {n.envoyerNotification()}, ContenuNotificationNullException, "Contenu notifiaction null exception");
+	var n= new notification("pseudo","titre", "", "tous", false);
+	throws(function() {n.envoyerNotification()}, contenuNotificationNullException, "Contenu notifiaction null exception");
 }
 );
 
@@ -41,7 +41,7 @@ test("test fonction afficher notification", function()
         fixtureNode.innerHTML=fixture;
 
 
-        var n= new Notification("pseudo","titre", "contenu", "tous", false);
+        var n= new notification("pseudo","titre", "contenu", "tous", false);
         
         n.afficherNotification();
 
@@ -63,7 +63,7 @@ test("test fonction afficher notification", function()
         fixtureNode.innerHTML=fixture;
 
 
-        var n= new Notification("mohcine","titreTest", "contenuTest", "tous", false);
+        var n= new notification("mohcine","titreTest", "contenuTest", "tous", false);
         
        	n.afficherNotification();
         var titre = document.getElementsByClassName("titreNotif")[0].innerHTML;

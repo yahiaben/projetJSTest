@@ -7,7 +7,7 @@ test("test getter pseudo connection",function()
 {
 	var pseudo = "mohcine";
 	var mdp = "monmdp";
-	var c=new Connection(pseudo,mdp);
+	var c=new connection(pseudo,mdp);
 	equal(c.pseudo,pseudo,"test du getter pseudo");
 }
 );
@@ -16,7 +16,7 @@ test("test getter mdp connection",function()
 {
 	var pseudo = "mohcine";
 	var mdp = "monmdp";
-	var c=new Connection(pseudo,mdp);
+	var c=new connection(pseudo,mdp);
 	equal(c.mdp,mdp,"test du getter pseudo");
 }
 );

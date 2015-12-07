@@ -5,14 +5,14 @@ module("utilisateur", {
 
 test("test construct utilisateur",function()
 {
-	var u=new Utilisateur();
+	var u=new utilisateur();
 	equal(u.getPseudo(),null,"l'utilisateur est iniatialiser avec le pseudo null");
 }
 );
 
 test("test pseudo null utilisateur", function()
 {	
-	var u= new Utilisateur();
+	var u= new utilisateur();
 	throws(function() {u.connect("")}, pseudoNullExc, "Pseudo null exception ");
 }
 );
@@ -25,7 +25,7 @@ test("test getter utilisateur", function()
         fixture+=("<div id='divAccount'></div>");
         fixture+=("<div id='divAccueil'></div>");
         fixture+=("</div>");
-	var u= new Utilisateur();
+	var u= new utilisateur();
 	var fixtureNode=document.getElementById("qunit-fixture");
         fixtureNode.innerHTML=fixture;
 	u.connect("pseudoTest");
@@ -43,7 +43,7 @@ test("test suppression menuConnexion, divLogin et divAccueil apres connection de
         fixture+=("<div id='divAccueil'></div>");
         fixture+=("</div>");
 
-	var u= new Utilisateur();
+	var u= new utilisateur();
 	var fixtureNode=document.getElementById("qunit-fixture");
         fixtureNode.innerHTML=fixture;
 	u.connect("pseudoTest");
@@ -69,7 +69,7 @@ test("test affichage divAccueil apres connexion de l'utilisateur", function()
         fixture+=("<div id='divAccueil'></div>");
         fixture+=("</div>");
 
-	var u= new Utilisateur();
+	var u= new utilisateur();
 	var fixtureNode=document.getElementById("qunit-fixture");
         fixtureNode.innerHTML=fixture;
 	u.connect("pseudoTest");
