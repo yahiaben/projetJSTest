@@ -49,7 +49,6 @@ $.ajax({
             var n = new notification(receiver, title,contenu,true, group);
             n.afficherNotification();
           }else{
-            console.log("je suis ici");
             if(receiver=="tous"){
               var n = new notification(pseudo, title,contenu,false, group);
               n.afficherNotification();
