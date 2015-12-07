@@ -1,4 +1,5 @@
 function Connection(pseudo,mdp){
+	alert("pseudo");
 	this.pseudo = pseudo;
 	this.mdp=mdp;
 	var cobra = new Cobra();

@@ -1,5 +1,10 @@
 function Compte(pseudo, mdp){
 	
+	if(pseudo === "" && mdp === ""){
+		alert("remplir tous les champs !");
+		return ;
+	}
+
 	if(pseudo === ""){
      throw new PseudoCompteNullException();
     }
@@ -33,7 +38,7 @@ Compte.prototype = {
 			}
 		}
 
-		if(!pseudoExiste){
+		if(!pseudoExiste && pseudoA.innerHTML != ""){
 			cobra.sendMessage({pseudo: this.pseudo, mdp: this.mdp},roomPseudo,false);
 			alert("Féicitation, votre compte à été créé !\n"+"pseudo : "+this.pseudo+"\nmot de passe : "+this.mdp);
 			apiUrl = 'http://cobra-framework.com:3000/api/events/' + room;

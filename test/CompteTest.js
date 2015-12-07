@@ -24,6 +24,26 @@ test("test mot de passe compte null", function()
 }
 );
 
+test("test Alert", 1, function()
+{
+	
+
+        var fixture="";
+        fixture+=("<div id='res'><div>");
+        
+        
+        window.alert=function(s){
+                document.getElementById("res").innerHTML=s;
+        }
+        
+        var fixtureNode=document.getElementById("qunit-fixture");
+        fixtureNode.innerHTML=fixture;
+        
+        
+        var c=new Compte("","");
+        equal(document.getElementById("res").innerHTML,"remplir tous les champs !", "Test Alert : remplir tous le champs");
+}
+);
 
 
 

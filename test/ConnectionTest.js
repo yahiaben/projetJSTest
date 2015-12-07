@@ -20,3 +20,5 @@ test("test getter mdp connection",function()
 	equal(c.mdp,mdp,"test du getter pseudo");
 }
 );
+
+
