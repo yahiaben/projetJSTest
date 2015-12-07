@@ -19,9 +19,9 @@ Utilisateur.prototype.connect = function(pseudo){
 		var divLogin = document.getElementById("divLogin");
 		var divAccount = document.getElementById("divAccount");
 		//Suppression des elements de connexion
-		menuConnexion.remove();
-		divLogin.remove();
-		divAccount.remove();
+		menuConnexion.style.display = "none";
+		divLogin.style.display = "none";
+		divAccount.style.display = "none";
 		//je charge les messages de l'utilisateur en question
 		cobra.joinRoom(room);
 		var divAccueil = document.getElementById('divAccueil');

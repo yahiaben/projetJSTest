@@ -50,9 +50,12 @@ test("test suppression menuConnexion, divLogin et divAccueil apres connection de
 	var menuConnexion = document.getElementById("menuConnexion");
 	var divLogin = document.getElementById("divLogin");
 	var divAccount = document.getElementById("divAccount");
-	equal(menuConnexion,null,"le menuConnexion est supprimee");
-	equal(divLogin,null,"le divLogin est supprimee");
-	equal(divAccount,null,"le divAccueil est supprimee");
+	var stylemenuConnexion = menuConnexion.style.display;
+	var styledivLogin = menuConnexion.style.display;
+	var styledivAccount = menuConnexion.style.display;
+	equal(stylemenuConnexion,'none',"le menuConnexion est supprimee");
+	equal(styledivLogin,'none',"le divLogin est supprimee");
+	equal(styledivAccount,'none',"le divAccueil est supprimee");
 }
 );
 
