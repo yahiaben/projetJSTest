@@ -30,15 +30,14 @@ Compte.prototype = {
 			// recuperer les infos contenues dans les messages
 			var json = JSON.parse(content);
 			var pseudo = json.message.pseudo
-			var mdp = json.message.mdp;
-			if(pseudoA == pseudo){
+			if(pseudoA === pseudo){
 				alert("Le pseudo existe déjà !");
 				pseudoExiste = true;
 				return false;
 			}
 		}
 
-		if(!pseudoExiste && pseudoA.innerHTML != ""){
+		if(!pseudoExiste && pseudoA.innerHTML !== ""){
 			cobra.sendMessage({pseudo: this.pseudo, mdp: this.mdp},roomPseudo,false);
 			alert("Féicitation, votre compte à été créé !\n"+"pseudo : "+this.pseudo+"\nmot de passe : "+this.mdp);
 			apiUrl = 'http://cobra-framework.com:3000/api/events/' + room;

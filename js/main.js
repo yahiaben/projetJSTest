@@ -4,9 +4,7 @@ var utilisateur = new Utilisateur();
 // Fonction pour envoyer une notification
 function sendNotif(event){
 
-	//event.preventDefault();
 	var titre = document.getElementById('titreNotif').value;
-	console.log("titre ======> "+titre);
 	var contenu = document.getElementById('textNotif').value;
 	var pseudo = utilisateur.pseudo;
 	var tabReceveurs = Array();

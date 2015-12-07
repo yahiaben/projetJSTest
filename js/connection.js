@@ -16,7 +16,7 @@ Connection.prototype = {
              var json = JSON.parse(content);
              var pseudo = json.message.pseudo
              var mdp = json.message.mdp;
-             if(this.pseudo == pseudo && this.mdp == mdp){
+             if(this.pseudo === pseudo && this.mdp === mdp){
 				apiUrl = 'http://cobra-framework.com:3000/api/events/' + room;
 				var texteBienvenue = document.getElementById("textBienvenue");
 				texteBienvenue.innerHTML="Bienvenue à toi : "+this.pseudo.toUpperCase();
