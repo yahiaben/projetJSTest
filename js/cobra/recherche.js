@@ -25,7 +25,7 @@ window.onload = function(){
 			if(new RegExp("^"+txt,"i").test(pseudos[i])){
 				cpt++;
 				var word = document.createElement("li");
-				if(cpt%2 == 0){
+				if(cpt%2 === 0){
 					word.style.backgroundColor = "silver";
 				}else{
 					word.style.backgroundColor = "white";
@@ -55,12 +55,12 @@ window.onload = function(){
 
 	input.onblur = function(){
 		list.style.display = "none";
-		if(this.value=="")
+		if(this.value==="")
 			this.value = "Rechercher un ami";
 	};
 
 	input.onkeypress = function(event){
-		if(event.keyCode==13){
+		if(event.keyCode===13){
 
 			event.preventDefault();
 			var res = window.confirm("Voulez-vous envoyer le message à "+input.value+" ?");
@@ -70,7 +70,7 @@ window.onload = function(){
         		btnReceveur.className="btnReceveur";
         		btnReceveur.id=input.value;
         		btnReceveur.value=input.value;
-        		btnReceveur.addEventListener('click', function(e){
+        		btnReceveur.addEventListener('click', function(){
 					btnReceveur.remove(this);
 				});
 
