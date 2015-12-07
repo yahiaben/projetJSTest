@@ -5,7 +5,7 @@ module("Compte", {
 
 test("test initialisation compte",function()
 {
-	var c=new compte("mohcine","123456");
+	var c=new Compte("mohcine","123456");
 	ok(c.pseudo=="mohcine","pseudo");
 	ok(c.mdp=="123456","mdp");
 }
@@ -14,13 +14,13 @@ test("test initialisation compte",function()
 
 test("test pseudo compte null", function()
 {
-	throws(function() {new compte("","123456");}, pseudoCompteNullException, "Pseudo compte null exception");
+	throws(function() {new Compte("","123456");}, pseudoCompteNullException, "Pseudo compte null exception");
 }
 );
 
 test("test mot de passe compte null", function()
 {	
-	throws(function() {new compte("yahia","");}, mdpCompteNullException, "Mot de passe compte null exception");
+	throws(function() {new Compte("yahia","");}, mdpCompteNullException, "Mot de passe compte null exception");
 }
 );
 
@@ -41,7 +41,7 @@ test("test Alert", 1, function()
         fixtureNode.innerHTML=fixture;
         
         
-        var c=new compte("","");
+        var c=new Compte("","");
 
         window.alert=old_alert;
         equal(document.getElementById("res").innerHTML,"remplir tous les champs !", "Test Alert : remplir tous le champs");
